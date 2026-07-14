@@ -1,1 +1,76 @@
 @import "tailwindcss";
+
+@keyframes slide {
+    0% {
+        background-position: left;
+    }
+
+    50% {
+        background-position: right;
+    }
+
+    100% {
+        background-position: left;
+    }
+}
+
+.animate-slide {
+    background-size: 300% 300%;
+    animation: slide 4s ease infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+
+    }
+
+    100% {
+        opacite: 1;
+
+    }
+}
+
+.animate-blink {
+    animation: blink 1s ease infinite;
+}
+
+
+.gradient-bg {
+    background: linear-gradient(60deg, #0B3D91,
+            #2563EB,
+            #60A5FA,
+            #F87171,
+            #DC2626,
+            #7F1D1D);
+    background-size: 300% 300%;
+    animation: slide 15s ease infinite;
+}
+
+.gradient-bg1 {
+    background: linear-gradient(70deg, #2d69d1, #2563EB,
+            #DC2626,
+            #7F1D1D);
+    background-size: 300% 300%;
+    animation: slide 15s ease infinite;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(150px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slideUp {
+    animation: slideUp 0.7s ease-out forwards;
+}
