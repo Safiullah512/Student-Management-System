@@ -8,7 +8,7 @@ function Application() {
     setApplication(application === menu ? "status" : menu);
   }
   return (
-    <div className="w-full flex h-screen">
+    <div className="w-full flex h-screen pt-40">
       <div className=" w-fit text-md flex flex-col  *:px-8 *:py-2   *:border-b *:border-r *:border-r-red-500 *:border-l *:border-l-red-500  *:hover:bg-[#C32A30] *:cursor-pointer *:hover:text-white *:text-left ">
         <button className="gradient-bg1 text-white font-bold">
           Application Status

@@ -17,7 +17,7 @@ function Dashboard() {
   }
   return (
     <nav className="w-full h-screen flex flex-col">
-      <div className="fixed z-50 w-full">
+      <div className=" w-full fixed pb-20 z-50 top-0">
         <div className="bg-[#CF4E33] p-2 flex justify-between text-white ">
           <p>Annoucement</p>
           <p>SAFIULLAH SHEKH</p>
@@ -35,7 +35,7 @@ function Dashboard() {
               <button onClick={() => handleMenu("application")}>
                 Application
               </button>
-              <button onClick={() => setActiveMenu("examination")}>
+              <button onClick={() => handleMenu("examination")}>
                 Examination
               </button>
               <button>
@@ -53,7 +53,7 @@ function Dashboard() {
             </span>
           </div>
         </div>
-        <div className="flex justify-end px-5 my-3">
+        <div className="flex justify-end px-5 bg-white p-3">
           <h1
             className=" bg-[#0472C0]  rounded-2xl px-3 text-sm text-white cursor-pointer"
             onClick={() => setActiveMenu("home")}
@@ -64,7 +64,7 @@ function Dashboard() {
         </div>
       </div>
       <div
-        className="flex flex-1 bg-cover"
+        className="flex flex-1 bg-cover  "
         style={{ backgroundImage: `url(${bg})` }}
       >
         {activeMenu === "home" && <HomeSidebar></HomeSidebar>}

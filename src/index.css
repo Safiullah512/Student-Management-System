@@ -74,3 +74,20 @@
 .animate-slideUp {
     animation: slideUp 0.7s ease-out forwards;
 }
+
+.view-bg {
+    background: linear-gradient(30deg,
+            #69dc26,
+            rgb(5, 104, 13));
+    background-size: 300% 300%;
+    animation: slide 3s ease infinite;
+}
+
+.view-bg1 {
+    background: linear-gradient(30deg,
+            #2c57e6,
+            #03136e);
+    background-size: 300% 300%;
+    animation: slide 3s ease infinite;
+
+}

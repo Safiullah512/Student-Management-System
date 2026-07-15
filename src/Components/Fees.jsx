@@ -3,7 +3,7 @@ import { faPrint } from "@fortawesome/free-solid-svg-icons";
 
 function Fees() {
   return (
-    <div className="bg-white/70 w-full mx-2 border-2 border-red-600">
+    <div className="bg-white/70 w-full mx-2 border-2 border-red-600 pt-40">
       <h1 className="bg-[#0671B6] p-2 text-xl text-white font-bold pl-10 gradient-bg">
         Fees Details
       </h1>
