@@ -11,7 +11,7 @@ function Examination() {
     seExamination(examination === menu ? "exam" : menu);
   }
   return (
-    <div className="w-full flex h-screen pt-40">
+    <div className="w-full flex h-screen pt-40 overflow-y-auto">
       <div className=" w-fit text-md flex flex-col  *:px-8 *:py-2   *:border-b *:border-r *:border-r-red-500 *:border-l *:border-l-red-500  *:hover:bg-[#C32A30] *:cursor-pointer *:hover:text-white *:text-left fixed ">
         <button className="gradient-bg1 text-white font-bold">
           Examination
@@ -513,7 +513,7 @@ function Examination() {
                     <td>41(123)</td>
                   </tr>{" "}
                   <tr className="text-sm *:border *:border-gray-500 *:p-2 text-center">
-                    <td>2</td>
+                    <td>6</td>
                     <td>BCA301</td>
                     <td>DATABASE MANAGEMENT SYSTEMS</td>
                     <td>III</td>
@@ -525,7 +525,7 @@ function Examination() {
                     <td>41(123)</td>
                   </tr>
                   <tr className="text-sm *:border *:border-gray-500 *:p-2 text-center">
-                    <td>3</td>
+                    <td>7</td>
                     <td>BCA501</td>
                     <td>DATA WAREHOUSING & DATA MINING</td>
                     <td>V</td>
@@ -537,7 +537,7 @@ function Examination() {
                     <td></td>
                   </tr>
                   <tr className="text-sm *:border *:border-gray-500 *:p-2 text-center">
-                    <td>4</td>
+                    <td>8</td>
                     <td>BCA102</td>
                     <td>DIGITAL ELECTRONICS AND COMPUTER ORGANIZATION</td>
                     <td>I</td>
@@ -549,7 +549,7 @@ function Examination() {
                     <td></td>
                   </tr>
                   <tr className="text-sm *:border *:border-gray-500 *:p-2 text-center">
-                    <td>5</td>
+                    <td>9</td>
                     <td>BCA302</td>
                     <td>DATA STRUCTURES</td>
                     <td>III</td>
@@ -561,7 +561,7 @@ function Examination() {
                     <td>41(123)</td>
                   </tr>{" "}
                   <tr className="text-sm *:border *:border-gray-500 *:p-2 text-center">
-                    <td>2</td>
+                    <td>10</td>
                     <td>BCA301</td>
                     <td>DATABASE MANAGEMENT SYSTEMS</td>
                     <td>III</td>
@@ -573,7 +573,7 @@ function Examination() {
                     <td>41(123)</td>
                   </tr>
                   <tr className="text-sm *:border *:border-gray-500 *:p-2 text-center">
-                    <td>3</td>
+                    <td>11</td>
                     <td>BCA501</td>
                     <td>DATA WAREHOUSING & DATA MINING</td>
                     <td>V</td>
@@ -585,7 +585,7 @@ function Examination() {
                     <td></td>
                   </tr>
                   <tr className="text-sm *:border *:border-gray-500 *:p-2 text-center">
-                    <td>4</td>
+                    <td>12</td>
                     <td>BCA102</td>
                     <td>DIGITAL ELECTRONICS AND COMPUTER ORGANIZATION</td>
                     <td>I</td>
@@ -597,7 +597,7 @@ function Examination() {
                     <td></td>
                   </tr>
                   <tr className="text-sm *:border *:border-gray-500 *:p-2 text-center">
-                    <td>5</td>
+                    <td>13</td>
                     <td>BCA302</td>
                     <td>DATA STRUCTURES</td>
                     <td>III</td>
@@ -609,7 +609,7 @@ function Examination() {
                     <td>41(123)</td>
                   </tr>{" "}
                   <tr className="text-sm *:border *:border-gray-500 *:p-2 text-center">
-                    <td>2</td>
+                    <td>14</td>
                     <td>BCA301</td>
                     <td>DATABASE MANAGEMENT SYSTEMS</td>
                     <td>III</td>
@@ -621,7 +621,7 @@ function Examination() {
                     <td>41(123)</td>
                   </tr>
                   <tr className="text-sm *:border *:border-gray-500 *:p-2 text-center">
-                    <td>3</td>
+                    <td>15</td>
                     <td>BCA501</td>
                     <td>DATA WAREHOUSING & DATA MINING</td>
                     <td>V</td>
@@ -633,7 +633,7 @@ function Examination() {
                     <td></td>
                   </tr>
                   <tr className="text-sm *:border *:border-gray-500 *:p-2 text-center">
-                    <td>4</td>
+                    <td>16</td>
                     <td>BCA102</td>
                     <td>DIGITAL ELECTRONICS AND COMPUTER ORGANIZATION</td>
                     <td>I</td>
@@ -645,7 +645,7 @@ function Examination() {
                     <td></td>
                   </tr>
                   <tr className="text-sm *:border *:border-gray-500 *:p-2 text-center">
-                    <td>5</td>
+                    <td>17</td>
                     <td>BCA302</td>
                     <td>DATA STRUCTURES</td>
                     <td>III</td>

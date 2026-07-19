@@ -91,3 +91,9 @@
     animation: slide 3s ease infinite;
 
 }
+
+.view-bg:hover {
+    transform: translateY(-2px);
+    background: #CF4E33;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .4)
+}
