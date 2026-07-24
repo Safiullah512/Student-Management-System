@@ -23,7 +23,7 @@ function Navbar() {
         ></img>
       </div>
       <div
-        className=" flex flex-1 w-full h-auto justify-center items-center bg-cover hidden lg:block"
+        className=" lg:flex flex-1 w-full h-auto justify-center items-center bg-cover hidden "
         style={{ backgroundImage: `url(${images[curImages]})` }}
       >
         <SignIn></SignIn>

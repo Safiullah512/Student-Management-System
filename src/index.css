@@ -97,3 +97,22 @@
     background: #CF4E33;
     box-shadow: 0 0 20px rgba(0, 0, 0, .4)
 }
+
+
+
+@keyframes slider {
+    0% {
+        transform: translateX(0%);
+    }
+
+    /* Back to first */
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-slider {
+    display: flex;
+    width: max-content;
+    animation: slider 12s linear infinite;
+}

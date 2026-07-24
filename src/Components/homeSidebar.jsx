@@ -1,6 +1,16 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faPrint } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faPrint,
+  faBell,
+  faBullhorn,
+  faCalendar,
+  faInfo,
+  faPeopleGroup,
+  faInfoCircle,
+  faGreaterThan,
+} from "@fortawesome/free-solid-svg-icons";
 function HomeSidebar() {
   const [activeBtn, setActiveBtn] = useState("");
   function handleBtn(menu) {
@@ -10,7 +20,7 @@ function HomeSidebar() {
     <>
       <div className="w-full lg:block hidden">
         <div className=" w-full flex">
-          <div className=" w-fit text-md flex flex-col *:px-8 *:py-3  *:bg-white/80 *:border-b *:border-r *:border-r-red-500 *:border-l *:border-l-red-500 ml-2 *:hover:bg-[#C32A30] *:cursor-pointer *:hover:text-white overflow-y-auto pt-41">
+          <div className=" w-fit text-md flex flex-col *:px-8 *:py-3  *:bg-white/80 *:border-b *:border-r *:border-r-red-500 *:border-l *:border-l-red-500 ml-2 *:hover:bg-[#C32A30] *:cursor-pointer *:hover:text-white overflow-y-auto lg:pt-41">
             <button className="gradient-bg1 font-extrabold text-white border-2! border-white!">
               Home
             </button>
@@ -172,28 +182,93 @@ function HomeSidebar() {
         </div>
       </div>
       <div className="lg:hidden">
-        <div className=" w-full flex">
-          <div className=" w-fit text-md flex flex-col *:px-8 *:py-3  *:bg-white/80 *:border-b *:border-r *:border-r-red-500 *:border-l *:border-l-red-500 ml-2 *:hover:bg-[#C32A30] *:cursor-pointer *:hover:text-white overflow-y-auto pt-41">
-            <button className="gradient-bg1 font-extrabold text-white border-2! border-white!">
-              Home
-            </button>
-            <button
-              className="border border-red-500"
-              onClick={() => handleBtn("notifications")}
-            >
-              Notifications
-            </button>
-            <button onClick={() => handleBtn("announcement")}>
-              Announcement
-            </button>
-            <button onClick={() => handleBtn("events")}>Events</button>
-            <button>
-              Circular-Notice<br></br>/Announcement
-            </button>
-            <button onClick={() => handleBtn("meeting")}>Meeting View</button>
+        <div className="w-full h-auto bg-white mt-2">
+          <div className=" w-full text-md grid grid-cols-2 *:py-4 *:shadow-[0_0_3px_rgba(0,0,0,0.2)] px-5 py-5 gap-3">
+            <div className="w-full flex flex-col justify-start  gap-3 p-2 ">
+              <FontAwesomeIcon
+                icon={faBell}
+                className="text-3xl text-blue-800 bg-blue-50 p-3 rounded-xl"
+              ></FontAwesomeIcon>
+              <button className="text-left mt-2 px-1">Notifications</button>
+              <div className="flex px-1 -mt-2">
+                <p className="text-xs">View all your recent notifications</p>
+                <FontAwesomeIcon
+                  icon={faGreaterThan}
+                  onClick={() => handleBtn("notifications")}
+                  className="bg-gray-100 p-2 rounded-full text-xs"
+                ></FontAwesomeIcon>
+              </div>
+            </div>
+            <div className="w-full flex flex-col justify-start  gap-3 p-2 ">
+              <FontAwesomeIcon
+                icon={faBullhorn}
+                className="text-3xl text-green-600 bg-blue-50 p-3 rounded-xl"
+              ></FontAwesomeIcon>
+              <button className="text-left mt-2 px-1">Annoucement</button>
+              <div className="flex px-1 -mt-2">
+                <p className="text-xs">Check latest annoucements</p>
+                <FontAwesomeIcon
+                  icon={faGreaterThan}
+                  onClick={() => handleBtn("announcement")}
+                  className="bg-gray-100 p-2 rounded-full text-xs"
+                ></FontAwesomeIcon>
+              </div>
+            </div>
+            <div className="w-full flex flex-col justify-start  gap-3 p-2 ">
+              <FontAwesomeIcon
+                icon={faCalendar}
+                className="text-3xl text-amber-500 bg-blue-50 p-3 rounded-xl"
+              ></FontAwesomeIcon>
+              <button className="text-left mt-2 px-1">Events</button>
+              <div className="flex px-1 -mt-2">
+                <p className="text-xs">Explore upcoming events</p>
+                <FontAwesomeIcon
+                  icon={faGreaterThan}
+                  onClick={() => handleBtn("events")}
+                  className="bg-gray-100 p-2 rounded-full text-xs"
+                ></FontAwesomeIcon>
+              </div>
+            </div>{" "}
+            <div className="w-full flex flex-col justify-start  gap-3 p-2 ">
+              <FontAwesomeIcon
+                icon={faInfoCircle}
+                className="text-3xl text-violet-700 bg-blue-50 p-3 rounded-xl"
+              ></FontAwesomeIcon>
+              <button className="text-left mt-2 px-1">
+                Circular-Notice / Announcement
+              </button>
+              <div className="flex px-1 -mt-2">
+                <p className="text-xs">Access circulars and notices</p>
+                <FontAwesomeIcon
+                  icon={faGreaterThan}
+                  onClick={() => handleBtn("meeting")}
+                  className="bg-gray-100 p-2 rounded-full text-xs"
+                ></FontAwesomeIcon>
+              </div>
+            </div>
+          </div>
+          <div className="w-full px-5 mb-3">
+            <div className="w-full h-auto bg-white  shadow-[0_0_3px_rgba(0,0,0,0.3)] flex py-3 justify-center ">
+              <div className="flex flex-col justify-center items-center gap-1">
+                <FontAwesomeIcon
+                  icon={faPeopleGroup}
+                  className="text-3xl text-red-500"
+                ></FontAwesomeIcon>
+                <button onClick={() => handleBtn("meeting")}>
+                  Meeting View
+                </button>
+              </div>
+              <div className="mt-3 ml-4">
+                <FontAwesomeIcon
+                  icon={faGreaterThan}
+                  onClick={() => handleBtn("notifications")}
+                  className="bg-gray-100 p-2 rounded-full text-xs"
+                ></FontAwesomeIcon>
+              </div>
+            </div>
           </div>
           {activeBtn === "announcement" && (
-            <div className="flex-1 ml-6 mr-2 animate-slideUp pt-40">
+            <div className="flex-1 ml-6 mr-2 animate-slideUp pt-40 hidden ">
               <div className="w-full border-2 border-red-600 bg-white/70">
                 <h1 className="w-full p-2 text-white font-bold  border-white border-2 gradient-bg">
                   Announcement
@@ -296,7 +371,7 @@ function HomeSidebar() {
                         ></input>
                       </div>
                       <div className="w-full p-5">
-                        <table className="border-t-2 border-red-600 w-full text-white border-separate border-spacing-x-0.5 text-left border-l-1 border-l-black">
+                        <table className="border-t-2 border-red-600 w-full text-white border-separate border-spacing-x-0.5 text-left `border-l-1` border-l-black">
                           <thead>
                             <tr className="p-1 *:border-spacing-1 *:p-1 ">
                               <td className="bg-[#0671B6]">

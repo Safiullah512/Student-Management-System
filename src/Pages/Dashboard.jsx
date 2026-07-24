@@ -1,4 +1,4 @@
-import { act, useState } from "react";
+import { act, useEffect, useState } from "react";
 import erp1 from "../assets/profile.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -20,6 +20,9 @@ import Retotling from "../Components/Retotling";
 import Result from "../Components/Result";
 import MenuBtn from "../Components/MenuBtn";
 import bg1 from "../assets/bg1.jpg";
+import btn1 from "../assets/btn1.webp";
+import btn2 from "../assets/btn2.webp";
+import btn3 from "../assets/btn3.webp";
 
 function Dashboard() {
   const [showMore, setShowMore] = useState("");
@@ -27,6 +30,11 @@ function Dashboard() {
   const [activeMenu, setActiveMenu] = useState("home");
   const [showBtn, setShowBtn] = useState(false);
   const [close, setClose] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [transition, setTransition] = useState(false);
+
+  const images = [btn1, btn2, btn3];
+  const sliderImages = [...images, images[0]];
 
   function show(active) {
     setShowSide(showSide === active ? "" : active);
@@ -36,6 +44,24 @@ function Dashboard() {
     setActiveMenu(activeMenu === menu ? "home" : menu);
     setClose(true);
   }
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => prev + 1);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    if (current === images.length) {
+      setTimeout(() => {
+        setTransition(false); // animation band
+        setCurrent(0); // first image
+      }, 700); // duration ke barabar
+    } else {
+      setTransition(true); // animation on
+    }
+  }, [current]);
 
   return (
     <nav className="w-full h-screen flex flex-col">
@@ -287,15 +313,36 @@ function Dashboard() {
           {activeMenu === "form" && <Retotling></Retotling>}
           {activeMenu === "result" && <Result></Result>}
         </div>
-        <div
-          className="flex flex-1 min-h-screen top-20 -z-10 lg:hidden"
-          style={{
-            backgroundImage: `url(${bg1})`,
-            backgroundAttachment: "fixed",
-            backgroundSize: "cover",
-            backgroundPosition: "center 10px",
-          }}
-        >
+        <div className="relative lg:hidden">
+          <div className="w-full flex h-auto overflow-hidden  pt-35  ">
+            <div
+              className="flex transition-transform duration-700  "
+              style={{
+                transform: `translateX(-${current * 100}%)`,
+                transition: transition ? "transform 700ms ease" : "none",
+              }}
+            >
+              {sliderImages.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  className="w-full h-50 object-cover shrink-0"
+                ></img>
+              ))}
+            </div>
+          </div>
+          <div className="absolute top-78 left-1/2 -translate-x-1/2 flex gap-2">
+            {images.map((_, index) => (
+              <div
+                key={index}
+                className={`rounded-full transition-all duration-300 ${
+                  current % images.length === index
+                    ? "w-3 h-3 bg-yellow-600"
+                    : "w-3 h-3 bg-gray-300"
+                }`}
+              ></div>
+            ))}
+          </div>
           {activeMenu === "home" && <HomeSidebar></HomeSidebar>}
           {activeMenu === "fees" && <Fees></Fees>}
           {activeMenu === "application" && <Application></Application>}
