@@ -1,6 +1,7 @@
 import { act, useEffect, useState } from "react";
 import erp1 from "../assets/profile.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import {
   faHome,
   faCaretDown,
@@ -23,6 +24,8 @@ import bg1 from "../assets/bg1.jpg";
 import btn1 from "../assets/btn1.webp";
 import btn2 from "../assets/btn2.webp";
 import btn3 from "../assets/btn3.webp";
+import { useNavigate } from "react-router-dom";
+import Mob_Grievance from "../Mobile UI/Mob_grievance";
 
 function Dashboard() {
   const [showMore, setShowMore] = useState("");
@@ -32,6 +35,12 @@ function Dashboard() {
   const [close, setClose] = useState(false);
   const [current, setCurrent] = useState(0);
   const [transition, setTransition] = useState(false);
+
+  const navigate = useNavigate();
+
+  const [activeBtn, setActiveBtn] = useState("");
+
+  const [showIcon, setShowIcon] = useState(true);
 
   const images = [btn1, btn2, btn3];
   const sliderImages = [...images, images[0]];
@@ -43,8 +52,17 @@ function Dashboard() {
   function handleMenu(menu) {
     setActiveMenu(activeMenu === menu ? "home" : menu);
     setClose(true);
+    setShowIcon(false);
   }
 
+  function handleHomeBtn() {
+    setActiveMenu("home");
+    setActiveBtn("");
+    setShowIcon(true);
+  }
+  function logout() {
+    navigate("/navbar");
+  }
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => prev + 1);
@@ -62,10 +80,9 @@ function Dashboard() {
       setTransition(true); // animation on
     }
   }, [current]);
-
   return (
     <nav className="w-full h-screen flex flex-col">
-      <div className=" w-full fixed pb-20 z-50 top-0">
+      <div className=" w-full fixed pb-20 z-60 top-0">
         <div className="bg-[#CF4E33] p-2 flex justify-between text-white ">
           <p>Annoucement</p>
           <p>SAFIULLAH SHEKH</p>
@@ -118,11 +135,11 @@ function Dashboard() {
             </span>
           </div>
           {showSide && (
-            <div className="absolute top-28.5 right-0 *:px-8 *:pl-3 *:border-t border-white bg-[#16628D] border text-white *:p-2">
+            <div className="absolute top-28.5 right-0 *:px-8 *:pl-3 *:border-t border-white bg-[#16628D] border text-white *:p-2 *:cursor-pointer *:hover:bg-[#CF4E33] ">
               <p>My Profile</p>
               <p>Upload Profile Picture</p>
               <p>Change Password</p>
-              <p>Sign Out</p>
+              <p onClick={() => logout()}>Sign Out</p>
             </div>
           )}
         </div>
@@ -142,11 +159,11 @@ function Dashboard() {
             ></img>
           </div>
           {showSide && (
-            <div className="absolute top-28.5 right-0 *:px-8 *:pl-3 *:border-t border-white bg-[#16628D] border text-white *:p-2">
+            <div className="absolute top-28.5 right-0 *:px-8 *:pl-3 *:border-t border-white bg-[#16628D] border text-white *:p-2 *:cursor-pointer hover:bg-[#CF4E33] ">
               <p>My Profile</p>
               <p>Upload Profile Picture</p>
               <p>Change Password</p>
-              <p>Sign Out</p>
+              <p onClick={() => logout()}>Sign Out</p>
             </div>
           )}
           <img
@@ -187,11 +204,11 @@ function Dashboard() {
             ></MenuBtn>
           )}
         </div>
-        <div className="w-full flex bg-white justify-end">
+        <div className="w-full flex bg-white justify-end border-b border-red-600">
           <div className="flex p-3">
             <h1
               className=" bg-[#0472C0]  rounded-2xl px-3 text-sm text-white cursor-pointer"
-              onClick={() => setActiveMenu("home")}
+              onClick={() => handleHomeBtn()}
             >
               <FontAwesomeIcon icon={faHome} className="mr-1" />
               My Home Page
@@ -294,7 +311,8 @@ function Dashboard() {
         )}
       </div>
       <div>
-        {/* Resoponsive for Laptop */}
+        {/* Resoponsive for Mobile */}
+
         <div
           className="lg:flex flex-1 min-h-screen top-20 -z-10 hidden"
           style={{
@@ -304,7 +322,14 @@ function Dashboard() {
             backgroundPosition: "center 150px",
           }}
         >
-          {activeMenu === "home" && <HomeSidebar></HomeSidebar>}
+          {activeMenu === "home" && (
+            <HomeSidebar
+              activeBtn={activeBtn}
+              setActiveBtn={setActiveBtn}
+              showIcon={showIcon}
+              setShowIcon={setShowIcon}
+            ></HomeSidebar>
+          )}
           {activeMenu === "fees" && <Fees></Fees>}
           {activeMenu === "application" && <Application></Application>}
           {activeMenu === "examination" && <Examination></Examination>}
@@ -313,42 +338,58 @@ function Dashboard() {
           {activeMenu === "form" && <Retotling></Retotling>}
           {activeMenu === "result" && <Result></Result>}
         </div>
+
+        {/* Mobile Responsive */}
+
         <div className="relative lg:hidden">
-          <div className="w-full flex h-auto overflow-hidden  pt-35  ">
-            <div
-              className="flex transition-transform duration-700  "
-              style={{
-                transform: `translateX(-${current * 100}%)`,
-                transition: transition ? "transform 700ms ease" : "none",
-              }}
-            >
-              {sliderImages.map((img, index) => (
-                <img
-                  key={index}
-                  src={img}
-                  className="w-full h-50 object-cover shrink-0"
-                ></img>
-              ))}
+          {showIcon && (
+            <div>
+              {" "}
+              <div className="w-full flex h-auto overflow-hidden  pt-35  ">
+                <div
+                  className="flex transition-transform duration-700  "
+                  style={{
+                    transform: `translateX(-${current * 100}%)`,
+                    transition: transition ? "transform 700ms ease" : "none",
+                  }}
+                >
+                  {sliderImages.map((img, index) => (
+                    <img
+                      key={index}
+                      src={img}
+                      className="w-full h-50 object-cover shrink-0"
+                    ></img>
+                  ))}
+                </div>
+              </div>
+              <div className="absolute top-78 left-1/2 -translate-x-1/2 flex gap-2">
+                {images.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`rounded-full transition-all duration-300 ${
+                      current % images.length === index
+                        ? "w-3 h-3 bg-yellow-600"
+                        : "w-3 h-3 bg-gray-300"
+                    }`}
+                  ></div>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="absolute top-78 left-1/2 -translate-x-1/2 flex gap-2">
-            {images.map((_, index) => (
-              <div
-                key={index}
-                className={`rounded-full transition-all duration-300 ${
-                  current % images.length === index
-                    ? "w-3 h-3 bg-yellow-600"
-                    : "w-3 h-3 bg-gray-300"
-                }`}
-              ></div>
-            ))}
-          </div>
-          {activeMenu === "home" && <HomeSidebar></HomeSidebar>}
+          )}
+
+          {activeMenu === "home" && (
+            <HomeSidebar
+              activeBtn={activeBtn}
+              setActiveBtn={setActiveBtn}
+              showIcon={showIcon}
+              setShowIcon={setShowIcon}
+            ></HomeSidebar>
+          )}
           {activeMenu === "fees" && <Fees></Fees>}
           {activeMenu === "application" && <Application></Application>}
           {activeMenu === "examination" && <Examination></Examination>}
           {activeMenu === "railway" && <Railway></Railway>}
-          {activeMenu === "grievance" && <Grievance></Grievance>}
+          {activeMenu === "grievance" && <Mob_Grievance></Mob_Grievance>}
           {activeMenu === "form" && <Retotling></Retotling>}
           {activeMenu === "result" && <Result></Result>}
         </div>

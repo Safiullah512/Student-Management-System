@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBug,
+  faClipboard,
+  faEye,
+  faNoteSticky,
+  faPenToSquare,
+  faPesetaSign,
+} from "@fortawesome/free-solid-svg-icons";
 function Grievance() {
   const [grievance, setGrievance] = useState("grievance");
   const [file, setFile] = useState("No file chosen");
@@ -14,23 +21,18 @@ function Grievance() {
   }
   return (
     <div>
-      <div className="w-full flex h-screen pt-40 overflow-y-auto mb-15">
-        <div className=" w-fit text-md flex flex-col  *:px-8 *:py-2   *:border-b *:border-r *:border-r-red-500 *:border-l *:border-l-red-500  *:hover:bg-[#C32A30] *:cursor-pointer *:hover:text-white *:text-left text-lg">
-          <button className="gradient-bg1 text-white font-bold">
-            Grievance
-          </button>
-          <button
-            onClick={() => handleMenu("grievance")}
-            className={`${grievance === "grievance" ? "bg-blue-600 text-white" : "bg-white/70"}`}
-          >
-            Grievance
-          </button>
-          <button
-            onClick={() => handleMenu("status")}
-            className={`${grievance === "status" ? "bg-blue-600 text-white" : "bg-white/70"}`}
-          >
-            Grievance Status
-          </button>
+      <div className="w-full h-screen pt-40 overflow-y-auto mb-15 m-2">
+        <div className="flex justify-center items-center p-2 shadow-[0_0_4px_rgba(0,0,0,0.6)] gap-3">
+          <FontAwesomeIcon
+            icon={faClipboard}
+            className="text-2xl bg-blue-600 text-white p-2 rounded-xl"
+          ></FontAwesomeIcon>
+          <div className="flex flex-col">
+            <div>Submit Grievance</div>
+            <div className="text-sm">
+              Fill the form below to register your grievance
+            </div>
+          </div>
         </div>
         {grievance === "grievance" && (
           <div className="flex-1 min-w-0  ml-8 animate-slideUp w-full">

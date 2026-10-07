@@ -19,7 +19,7 @@ function SignIn() {
   function handleLogin() {
     if (user.toLocaleLowerCase() === "bc2024174" && password === "Safiq123@") {
       setError("");
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true });
     } else if (password === "Safiq123@") {
       serError("System doesn't recognize password");
     } else {
