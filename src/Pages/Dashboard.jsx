@@ -26,6 +26,7 @@ import btn2 from "../assets/btn2.webp";
 import btn3 from "../assets/btn3.webp";
 import { useNavigate } from "react-router-dom";
 import Mob_Grievance from "../Mobile UI/Mob_grievance";
+import logo from "../assets/logo.png";
 
 function Dashboard() {
   const [showMore, setShowMore] = useState("");
@@ -91,11 +92,11 @@ function Dashboard() {
         <div className="lg:flex justify-between px-8  border-b-2 border-red-600 bg-[#F1F1F1] hidden">
           <div className="flex justify-around lg:gap-20 gap-5">
             <img
-              src="http://erp.invertisuniversity.ac.in:81/assets/images/ilogo.png"
+              src={logo}
               className="w-40 h-18 object-cover p-2 hidden lg:block"
             ></img>
             <img
-              src="http://erp.invertisuniversity.ac.in:81/assets/images/ilogo.png"
+              src={logo}
               className="w-30 h-15 object-cover p-2  lg:hidden"
             ></img>
 
@@ -166,10 +167,7 @@ function Dashboard() {
               <p onClick={() => logout()}>Sign Out</p>
             </div>
           )}
-          <img
-            src="http://erp.invertisuniversity.ac.in:81/assets/images/ilogo.png"
-            className="w-40 h-18 object-cover p-2 "
-          ></img>
+          <img src={logo} className="w-40 h-18 object-cover p-2 "></img>
 
           <div className=" lg:*:w-fit  h-8 *:bg-[#0671B6] lg:flex  *:px-5  *:rounded-tr-3xl text-white *:cursor-pointer *:text-md *:border-l-2 *:border-red-600 mt-10 *:hover:bg-[#DE495B] *:hover:border-[#0671B6] hidden">
             <button onClick={() => handleMenu("grievance")}>Grievance</button>
