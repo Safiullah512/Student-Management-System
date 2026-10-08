@@ -92,11 +92,11 @@ function Dashboard() {
         <div className="lg:flex justify-between px-8  border-b-2 border-red-600 bg-[#F1F1F1] hidden">
           <div className="flex justify-around lg:gap-20 gap-5">
             <img
-              src={logo}
+              src="https://www.invertisuniversity.ac.in/public/frontend/assets/images/logo.png"
               className="w-40 h-18 object-cover p-2 hidden lg:block"
             ></img>
             <img
-              src={logo}
+              src="https://www.invertisuniversity.ac.in/public/frontend/assets/images/logo.png"
               className="w-30 h-15 object-cover p-2  lg:hidden"
             ></img>
 
@@ -167,7 +167,10 @@ function Dashboard() {
               <p onClick={() => logout()}>Sign Out</p>
             </div>
           )}
-          <img src={logo} className="w-40 h-18 object-cover p-2 "></img>
+          <img
+            src="https://www.invertisuniversity.ac.in/public/frontend/assets/images/logo.png"
+            className="w-40 h-18 object-cover p-2 "
+          ></img>
 
           <div className=" lg:*:w-fit  h-8 *:bg-[#0671B6] lg:flex  *:px-5  *:rounded-tr-3xl text-white *:cursor-pointer *:text-md *:border-l-2 *:border-red-600 mt-10 *:hover:bg-[#DE495B] *:hover:border-[#0671B6] hidden">
             <button onClick={() => handleMenu("grievance")}>Grievance</button>
